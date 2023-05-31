@@ -15,17 +15,15 @@ class Arbol{
     private:
 
         //datos Constructor
-        Nodo* raiz;
-        int cant_postes; //contador para "PARAR_PROGRAMA", cada que se implemente insert(), se aumente en uno el contador.
+        Nodo* raiz; //raiz del arbol
         tElem pos; //posicion / "x" en el problema
 
         //funciones aux
-        void insertarNodo(tElem, Nodo* &, Nodo*); //funcion aux para insert
-        Nodo* crearNodo(); //funcion para crear un nodo
+        void insertarNodo(tElem, Nodo* &); //funcion aux para insert
+        Nodo* crearNodo(tElem); //funcion para crear un nodo
         bool busqueda(tElem, Nodo*); //funcion aux para find
-        void encontrarNodo(); //funcion aux para lower_bound
-        void borrarNodo(Nodo* ); //funcion eliminarNodo
-        void eliminar(Nodo* ); //funcion destruir
+        int encontrarNodo(tElem, Nodo*); //funcion aux para lower_bound
+        void clearHelp(Nodo*);
     
     public:
 
