@@ -1,10 +1,10 @@
 //funciones finales
 
 #include "TDA.hpp"
+#include <iostream>
 using namespace std;
 
 Nodo* arbol = NULL;
-//constructor y destructor
 
 //constructor
 Arbol::Arbol(){
@@ -13,12 +13,6 @@ Arbol::Arbol(){
     pos = 0;
 
 }
-
-//destructor
-Arbol::~Arbol(){
-
-}
-
 
 //*********************************
 //funciones auxiliares
@@ -102,6 +96,16 @@ int Arbol::encontrarNodo(tElem pos,Nodo *arbol) {
     return num;
     }
 }
+//funcion auxiliar de clear
+
+void Arbol::clearHelp(Nodo* arbol) {
+    if (arbol == NULL) return;
+     
+    clearHelp(arbol->izquierdo); 
+    clearHelp(arbol->derecho); 
+    delete arbol;
+}
+
 //funciones
 
 //funcion insert
@@ -123,4 +127,25 @@ int Arbol::lower_bound(tElem pos){
 
     return encontrarNodo(pos, arbol);
 
+}
+
+//funcion clear
+
+void Arbol::clear(){
+
+    clearHelp(arbol);
+
+}
+
+//destructor
+Arbol::~Arbol(){
+
+    clear();
+
+}
+
+int main(){
+
+
+    return 0;
 }
